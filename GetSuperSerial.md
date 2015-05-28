@@ -5,7 +5,7 @@ CVE-2015-2232
 ## Affected Devices (tested on)
 Blu Studio 5.0c
 Likely other Blu devices
-Likely other devices using MediaTek FOTA update services (adups; http://mg.adups.cn/adups/index.html)
+Likely other devices using MediaTek FOTA update services which is called [ADUPS](http://mg.adups.cn/adups/index.html)
 
 I have been unable to establish a proper line of communication with any of the affected vendors. Multiple emails to MediaTek emails have resulted in radio silence, BLU claims they have no security department and cannot assist.
 
