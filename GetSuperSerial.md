@@ -24,7 +24,7 @@ This script is imported inside of `init.rc`;
 ```
 import /FWUpgradeInit.rc
 ```
-This socket and binary is used to allow FWUpdate (package name com.adups.fota) the ability to run system uid commands over the socket. This is similar to CVE-2014-1600, however the socket only allows system uid commands to be executed and the socket is “encrypted” opposed to cleartext. The socket has also been changed, likely in an attempt to evade the CTS tests which specifically check for CVE-2014-1600.
+This socket and binary is used to allow FWUpdate (package name com.adups.fota) the ability to run system uid commands over the socket. This is similar to CVE-2014-1600, however the socket only allows system uid commands to be executed and the socket is “encrypted” used RC4 (with the key always being "system") opposed to cleartext. The socket has also been changed, likely in an attempt to evade the CTS tests which specifically check for CVE-2014-1600.
 
 Using the attached POC any application which has the INTERNET permission can connect to the socket and execute a system uid command. This issue has been assigned CVE-2015-2231.
 
