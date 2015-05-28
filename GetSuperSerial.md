@@ -1,16 +1,18 @@
-CVEs:
+# CVEs
 CVE-2015-2231
 CVE-2015-2232
 
-Affected Devices;
+## Affected Devices (tested on)
 Blu Studio 5.0c
 Likely other Blu devices
 Likely other devices using MediaTek FOTA update services (adups; http://mg.adups.cn/adups/index.html)
 
 I have been unable to establish a proper line of communication with any of the affected vendors. Multiple emails to MediaTek emails have resulted in radio silence, BLU claims they have no security department and cannot assist.
 
-CVE-2015-2231 (user escalation to system)
-Blu/Mediatek’s OTA system uses `/system/bin/fotabinder` service and socket at `/dev/socket/fota` which is initiated by `FWUpgradeInit.rc` as follows;
+The Android Security team however has accepted the CTS patch (https://android.googlesource.com/platform/cts/+/8a13023f463ecc0e266072863ecf23b0a559ec2f) to add an extra check for this system socket. This is very much like Jon Sawyer's checks previous which they purposefully evades, so let's see if they do it again.
+
+## CVE-2015-2231 (user escalation to system)
+Blu/Mediatek/ADUPS’s OTA system uses `/system/bin/fotabinder` service and socket at `/dev/socket/fota` which is initiated by `FWUpgradeInit.rc` as follows;
 
 ```
 service fotabinder /system/bin/fotabinder
@@ -26,7 +28,7 @@ This socket and binary is used to allow FWUpdate (package name com.adups.fota) t
 
 Using the attached POC any application which has the INTERNET permission can connect to the socket and execute a system uid command. This issue has been assigned CVE-2015-2231.
 
-CVE-2015-2232 (system escalation to root)
+## CVE-2015-2232 (system escalation to root)
 After gaining system uid access, we can then gain root privileges utilizing an a misconfiguration of mounted blocks;
 ```
 root@BLU STUDIO 5.0 C:/dev/block # ls -l /dev/block/mmcblk0
@@ -34,17 +36,21 @@ brw-rw---- root system 179, 0 2015-03-09 13:41 mmcblk0
 ```
 `mmcblk0` is the entire mounted partition, which `system` has complete read and write access to. From here we can use CVE-2015-2231 to execute a shell script as `system` to write to `mmcblk0` and cause a script to be executed as `root` on boot. This can allow the system uid to grain root and has been assigned CVE-2015-2232.
 
-Timeline
-2015-03-01 Discovery
-2015-03-05 Request Security Contact (BLU/Mediatek) 
-           CVEs Requested 
-2015-03-06 CVEs Assigned
-2015-03-06 BLU responded "no security department available"
-2015-03-09 Contact ADUPS
-2015-03-09 Contact security@android.com
-2015-03-10 Reply from security@android.com, assigned ANDROID-19679287
+## Timeline
+- 2015-03-01 Discovery
+- 2015-03-05 Request Security Contact (BLU/Mediatek) 
+             CVEs Requested 
+- 2015-03-06 CVEs Assigned
+- 2015-03-06 BLU responded "no security department available"
+- 2015-03-09 Contact ADUPS
+- 2015-03-09 Contact security@android.com
+- 2015-03-10 Reply from security@android.com, assigned ANDROID-19679287
+- 2015-05-01 Discussed vulnerability semi-publically at Qualcomm Mobile Security Summit
+- 2015-05-17 Test accepted by Android Security Team to CTS to look for bad socket
+- 2015-05-20 One last attempt to reach out to ADUPS/Mediatek
+- 2015-05-21 Public release of doc
 
-CVE-2015-2231 example code;
+## CVE-2015-2231 example code;
 ```
 package diff.strazzere.blukit;
 
@@ -192,7 +198,7 @@ public class BluSocket {
     }
 
     /*
-     * "crypto"
+     * "crypto" -> RC4 with the string "system"
      */
     public static String cipher(String ACTION_UPDATE_REPORT, String system) {
         String result = null;
@@ -264,7 +270,7 @@ public class BluSocket {
 
 ```
 
-CVE-2015-2232 example code;
+## CVE-2015-2232 example code;
 Using CVE-2015-2231 execute a shell script like the following;
 
 ```
