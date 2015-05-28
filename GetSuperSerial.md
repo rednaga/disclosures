@@ -9,7 +9,7 @@ Likely other devices using MediaTek FOTA update services (adups; http://mg.adups
 
 I have been unable to establish a proper line of communication with any of the affected vendors. Multiple emails to MediaTek emails have resulted in radio silence, BLU claims they have no security department and cannot assist.
 
-The Android Security team however has accepted the CTS patch (https://android.googlesource.com/platform/cts/+/8a13023f463ecc0e266072863ecf23b0a559ec2f) to add an extra check for this system socket. This is very much like Jon Sawyer's checks previous which they purposefully evades, so let's see if they do it again.
+The Android Security team however has accepted the (CTS patch) [https://android.googlesource.com/platform/cts/+/8a13023f463ecc0e266072863ecf23b0a559ec2f] to add an extra check for this system socket. This is very much like Jon Sawyer's checks previous which they purposefully evades, so let's see if they do it again.
 
 ## CVE-2015-2231 (user escalation to system)
 Blu/Mediatek/ADUPS’s OTA system uses `/system/bin/fotabinder` service and socket at `/dev/socket/fota` which is initiated by `FWUpgradeInit.rc` as follows;
