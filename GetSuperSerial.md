@@ -3,7 +3,8 @@ CVE-2015-2231
 CVE-2015-2232
 
 ## Affected Devices (tested on)
-Blu Studio 5.0c
+Blu Studio 5.0c (MT6582)
+Blu Vivo Air (MT6592)
 Likely other Blu devices
 Likely other devices using MediaTek FOTA update services which is called [ADUPS](http://mg.adups.cn/adups/index.html)
 
