@@ -5,11 +5,11 @@ CVE-2015-2232
 ## Affected Devices (tested on)
 Blu Studio 5.0c
 Likely other Blu devices
-Likely other devices using MediaTek FOTA update services (adups; http://mg.adups.cn/adups/index.html)
+Likely other devices using MediaTek FOTA update services which is called [ADUPS](http://mg.adups.cn/adups/index.html)
 
 I have been unable to establish a proper line of communication with any of the affected vendors. Multiple emails to MediaTek emails have resulted in radio silence, BLU claims they have no security department and cannot assist.
 
-The Android Security team however has accepted the CTS patch (https://android.googlesource.com/platform/cts/+/8a13023f463ecc0e266072863ecf23b0a559ec2f) to add an extra check for this system socket. This is very much like Jon Sawyer's checks previous which they purposefully evades, so let's see if they do it again.
+The Android Security team however has accepted the [CTS patch](https://android.googlesource.com/platform/cts/+/8a13023f463ecc0e266072863ecf23b0a559ec2f) to add an extra check for this system socket. This is very much like Jon Sawyer's checks previous which they purposefully evades, so let's see if they do it again.
 
 ## CVE-2015-2231 (user escalation to system)
 Blu/Mediatek/ADUPS’s OTA system uses `/system/bin/fotabinder` service and socket at `/dev/socket/fota` which is initiated by `FWUpgradeInit.rc` as follows;
@@ -24,7 +24,7 @@ This script is imported inside of `init.rc`;
 ```
 import /FWUpgradeInit.rc
 ```
-This socket and binary is used to allow FWUpdate (package name com.adups.fota) the ability to run system uid commands over the socket. This is similar to CVE-2014-1600, however the socket only allows system uid commands to be executed and the socket is “encrypted” opposed to cleartext. The socket has also been changed, likely in an attempt to evade the CTS tests which specifically check for CVE-2014-1600.
+This socket and binary is used to allow FWUpdate (package name com.adups.fota) the ability to run system uid commands over the socket. This is similar to CVE-2014-1600, however the socket only allows system uid commands to be executed and the socket is “encrypted” used RC4 (with the key always being "system") opposed to cleartext. The socket has also been changed, likely in an attempt to evade the CTS tests which specifically check for CVE-2014-1600.
 
 Using the attached POC any application which has the INTERNET permission can connect to the socket and execute a system uid command. This issue has been assigned CVE-2015-2231.
 
