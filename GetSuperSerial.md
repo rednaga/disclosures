@@ -49,6 +49,7 @@ brw-rw---- root system 179, 0 2015-03-09 13:41 mmcblk0
 - 2015-05-17 Test accepted by Android Security Team to CTS to look for bad socket
 - 2015-05-20 One last attempt to reach out to ADUPS/Mediatek
 - 2015-05-21 Public release of doc
+- 2015-05-22 MediaTek finally responds saying they where told by Google and it "should be all set"
 
 ## CVE-2015-2231 example code;
 ```
