@@ -9,6 +9,12 @@
   specific CVEs directly correlate to a few Blu phones, it appears to be used by many other lower-end phones.
 
 
-- ["HTC Peap" CVE-2015-5525, CVE-2015-5526 &, CVE-2015-5527](https://github.com/rednaga/disclosures/blob/master/HTCPeap.md)
+- ["HTC Peap" CVE-2015-5525, CVE-2015-5526 & CVE-2015-5527](https://github.com/rednaga/disclosures/blob/master/HTCPeap.md)
   
-  Multiple ways to access a backdoor which allows an unprivledged application the ability to run root commands.
+  Multiple ways to access a backdoor which allows an unprivledged application the ability to run root commands. Discussed
+  at the DEFCON23 Red Naga workshop on Offensive and Defensive Android Reverse Engineering.
+
+- ["Qualcomm System Agent", No CVEs assigned](https://github.com/rednaga/disclosures/blob/master/QCOMSysAgent.md)
+
+  Multiple vulnerabilities in an application that was never meant to be shipped on production devices. Discussed
+  at the DEFCON23 Red Naga workshop on Offensive and Defensive Android Reverse Engineering.
