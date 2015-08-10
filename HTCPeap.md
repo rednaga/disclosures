@@ -1,11 +1,11 @@
 # CVEs
-CVE-2015-5525 - Unsecured Unix Socket/IPC to root process for eapd
-CVE-2015-5526 - Path transversal in eapd
-CVE-2015-5527 - Backdoor for executing shell scripts as root
+- CVE-2015-5525 - Unsecured Unix Socket/IPC to root process for eapd
+- CVE-2015-5526 - Path transversal in eapd
+- CVE-2015-5527 - Backdoor for executing shell scripts as root
 
 ## Authors
-Jon “jcase” Sawyer - jcase@cunninglogic.com
-Tim “diff” Strazzere - strazz@gmail.com
+- Jon “jcase” Sawyer - jcase@cunninglogic.com
+- Tim “diff” Strazzere - strazz@gmail.com
 
 ## Affected Devices (tested on)
 - HTC Desire 310
@@ -55,7 +55,7 @@ MOV             R9, R0
 CBZ             R0, loc_BAA
 ```
 
-The below code simple performs;
+The below code simply performs;
 `system(path)`
 
 ```
