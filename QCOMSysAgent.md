@@ -1,5 +1,5 @@
 # CVEs
-- None CVEs requested / None assigned, reported directly to vendor
+- No CVEs requested / None assigned, reported directly to vendor
 - Issue 1: Qualcomm SystemAgent application allows unprivledged user execution of shell commands as system user
 - Issue 2: QSA applications allows ability for unprivledged user to set system properties.
 - Issue 3: QSA applications allows ability for unprivledged user to write strings as system user.
