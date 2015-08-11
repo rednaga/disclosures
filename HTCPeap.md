@@ -9,6 +9,10 @@
 
 ## Affected Devices (tested on)
 - HTC Desire 310
+- HTC Desire 310n
+- HTC Desire 320
+- HTC V1 (only a very limited number of firmwares)
+- CAT S50 (untested, informally verified with user of device, hard to get hands on actual device)
 - Likely other HTC devices
 
 ## CVE-2015-5525
