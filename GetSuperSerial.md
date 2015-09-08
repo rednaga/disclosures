@@ -292,4 +292,4 @@ root@BLU STUDIO 5.0 C:/ # ls -l /system/etc/partition_permission.sh
 Proof of Concept
 ================
 
-The POC and actual code I used for achieving root can be found at the repo [adups-get-super-serial](https://github.com/strazzere/adups-get-super-serial) (publical as of Sept. 9th, 2015)
+The POC and actual code I used for achieving root can be found at the repo [adups-get-super-serial](https://github.com/rednaga/adups-get-super-serial) (publical as of Sept. 9th, 2015)
