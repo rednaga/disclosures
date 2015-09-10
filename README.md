@@ -18,3 +18,7 @@
 
   Multiple vulnerabilities in an application that was never meant to be shipped on production devices. Discussed
   at the DEFCON23 Red Naga workshop on Offensive and Defensive Android Reverse Engineering.
+  
+- ["RESERVED", CVE-2015-6841](N/A)
+  
+  Vulnerability spot just reserved, currently only "triaged" by vendor. Fix not yet rolled out.
