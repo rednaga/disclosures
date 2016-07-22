@@ -19,6 +19,9 @@
   Multiple vulnerabilities in an application that was never meant to be shipped on production devices. Discussed
   at the DEFCON23 Red Naga workshop on Offensive and Defensive Android Reverse Engineering.
   
-- ["RESERVED", CVE-2015-6841](N/A)
+- ["Blackphone 1 modem take over", CVE-2015-6841](https://www.sentinelone.com/blog/vulnerability-in-blackphone-puts-devices-at-risk-for-takeover/)
+
+  Allows any local attacker to take over the modem, inject commands, cause denial of service and other creepy things.
+  [Vendor Post](https://www.silentcircle.com/blog/blackphone-1-vulnerability-notice/), [release notes](https://support.silentcircle.com/customer/en/portal/articles/2242250-privatos-1-1-13-release-notes?b_id=4315).
   
-  Vulnerability spot just reserved, currently only "triaged" by vendor. Fix not yet rolled out.
+  
