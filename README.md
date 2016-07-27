@@ -24,7 +24,7 @@
   Allows any local attacker to take over the modem, inject commands, cause denial of service and other creepy things.
   [Vendor Post](https://www.silentcircle.com/blog/blackphone-1-vulnerability-notice/), [release notes](https://support.silentcircle.com/customer/en/portal/articles/2242250-privatos-1-1-13-release-notes?b_id=4315).
 
-- ["RESERVED", RED-2016-0029 / CVE-2016-????]()
+- ["RESERVED", RED-2016-0029 / CVE-2016-3862]()
 
   Triaged by Google as Critical/Severe. RCE seems not possible on 4.2+ devices due to mitigations in place,
   however remote DOS/crash still available without interaction. More details and CVE after fix is released.
